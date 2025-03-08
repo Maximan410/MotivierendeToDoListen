@@ -1,0 +1,204 @@
+/* Styles für Task-Komponente */
+
+.task-element {
+  position: relative;
+  background: #fff; /* Weißer Hintergrund */
+  margin-bottom: 1em;
+  border-radius: 1em;
+  padding: 1%;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+.side-by-side {
+  /* Erlaubt elemente nebeneinander darzustellen*/
+  display: flex; /* Aktiviert Flexbox */
+
+  flex-wrap: nowrap; /* Elemente nicht umbrechen bei kleiner Breite */
+  max-width: 100%;
+  min-width: 100%;
+}
+/* Item-Container  wenn kompletter bereich eingenommen werden soll*/
+.itemmiddle {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0.2em 1em;
+  /* Allow long words to wrap */
+  overflow-wrap: break-word; /* For modern browsers */
+  word-wrap: break-word; /* For older browsers */
+  word-break: break-word; /* Break long words */
+}
+.itemleft {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  padding-top: 2%;
+}
+.itemright {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  min-height: 100%;
+  padding-top: 2px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  padding-top: 2%;
+}
+/* Checkbox-Design */
+.checkbox {
+  position: relative;
+  display: flex;
+  width: 2em;
+  height: 2em;
+  min-width: 2em; /* Stellt sicher, dass es nicht kleiner als 2em wird */
+  min-height: 2em; /* Stellt sicher, dass es nicht kleiner als 2em wird */
+  border: 1px solid;
+  border-radius: 50%; /* Rundes Design */
+  font-size: 1.5em; /*circle size multiplier*/
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Schatten */
+  background-color: transparent; /* Hintergrundfarbe */
+  color: #727272; /* Textfarbe */
+  transition: transform 0.2s ease; /* Klickanimation */
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox span {
+  font-size: 2em; /* Symbolgröße */
+  display: inline-block; /* Wichtig für transform */
+  transform: scaleX(1.5); /* Horizontal strecken um 50% */
+}
+
+/* Checkbox-Klick-Feedback */
+.checkbox:hover {
+  transform: scale(1.1); /* Vergrößerung beim Hover */
+}
+
+/* Subtasks */
+ul {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+li {
+  padding: 0em 1em 1em 2em;
+}
+.descriptionbox {
+  /*top right bot left*/
+  padding: 0em 1em 0em 1em;
+  font-size: 1.1em;
+}
+.subtaskbox {
+  display: flex; /* Aktiviert Flexbox */
+  align-items: center; /* Vertikale Ausrichtung */
+  align-self: center;
+  font-size: 1em;
+  z-index: 2;
+  gap: 8px;
+  border-radius: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1%;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  width: 95%;
+  padding: 10px; /* vergrößert die fläche */
+  cursor: pointer; /* Zeigt interaktive Fläche */
+  transition: transform 0.2s ease; /* Weicher Übergang beim Hover */
+  position: relative; /* Wichtig für absolute Positionierung von Kindern */
+  margin-bottom: 4px;
+}
+
+.subtaskbox:hover {
+  transform: scale(1.01); /* Vergrößerung beim Hover */
+}
+
+.subtaskbox div {
+  display: flex; /* Aktiviert Flexbox */
+  flex-wrap: wrap; /* Elemente umbrechen bei kleiner Breite */
+  gap: 5px; /* Abstand zwischen Elementen */
+}
+.normal-task {
+  color: #000000;
+}
+/* hintergrund 
+  */
+.grayout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* schwarz, 0,5 alpha */
+  top: 0;
+  left: 0;
+  border-radius: 1em;
+  z-index: 3;
+}
+.no_grayout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 1em;
+  z-index: 1;
+}
+
+.deadlinebox {
+  /* Shrink to fit content */
+  display: flex;
+  flex-grow: 0;
+  padding: 5px 10px;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  border-radius: 1em; /* Rounded corners */
+  z-index: 1;
+  background-color: #f0f0f0; /* background */
+  max-width: max-content;
+}
+.overtime {
+  background-color: rgb(255, 47, 47); /* schwarz, 0,5 alpha */
+}
+.over_grayout {
+  z-index: 4;
+}
+.done-task {
+  text-decoration: line-through;
+  color: #777777;
+}
+.priority-display {
+  align-self: center;
+  border: 2px solid transparent;
+  font-size: 1.2em; /* Größe anpassen */
+  top: 0px;
+}
+.task_edit_symbol {
+  width: 3em;
+  height: 3em;
+  position: relative;
+  min-width: 2em; /* Stellt sicher, dass es nicht kleiner als 2em wird */
+  min-height: 2em; /* Stellt sicher, dass es nicht kleiner als 2em wird */
+  border-radius: 50%; /* Rundes Design */
+  border: 2px solid transparent;
+  font-size: 1.5em; /*circle size multiplier*/
+  cursor: pointer;
+  background-color: transparent; /* Hintergrundfarbe */
+  color: #727272; /* Textfarbe */
+  transition: transform 0.2s ease; /* Klickanimation */
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 4;
+  margin-top: auto;
+}
+
+.task_edit_symbol span {
+  font-size: 2em; /* Symbolgröße */
+  display: inline-block; /* Wichtig für transform */
+}
+.task_edit_symbol:hover {
+  transform: scale(1.1); /* Vergrößerung beim Hover */
+}

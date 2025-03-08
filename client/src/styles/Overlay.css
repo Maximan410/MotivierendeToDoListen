@@ -1,0 +1,98 @@
+/* Hintergrund über gesamten screen */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* schwarz, 0,5 alpha */
+  display: flex;
+  z-index: 1001; /* über dem rest*/
+}
+
+/* hintergrund clickbar
+  */
+.overlay-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+/* content container */
+.overlay-content {
+  position: fixed;
+  background: #fff; /* weißer background */
+  border-radius: 8px;
+  top: 10%;
+  right: 10%;
+  padding: 20px;
+  height: 80%;
+  width: 80%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: auto; /* Ermöglicht Scrollen */
+}
+/* Close button */
+.overlay-close {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the X inside the circle */
+  position: fixed; /* Positioned relative to .overlay-content */
+  width: 10vw; /* Scales with viewport width */
+  height: 10vw; /* Match height to width for a perfect circle */
+  max-width: 5em; /* Optional: limit size for smaller screens */
+  max-height: 5em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Subtle shadow for depth */
+  border-radius: 50%; /* Makes the button circular */
+  cursor: pointer;
+  background-color: #304674; /* Button color */
+  top: 11%; /* Position the close button within the overlay */
+  right: 15%; /* Adjust as needed */
+  transition: opacity 0.3s, transform 0.3s; /* Smooth hover effects */
+}
+
+.overlay-close:hover {
+  opacity: 0.8; /* Subtle fade effect */
+  transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* Diagonal lines for the X */
+.x::before,
+.x::after {
+  content: ""; /* Creates the lines */
+  position: absolute; /* Positioned relative to the button container */
+  width: 0.2em; /* Thickness of the lines */
+  height: 60%; /* Length relative to the button */
+  border-radius: 4px; /* Slight rounding for better aesthetics */
+  background-color: white; /* Line color */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(45deg); /* First diagonal */
+}
+
+.x::after {
+  transform: translate(-50%, -50%) rotate(-45deg); /* Second diagonal */
+}
+
+/*scrollbar design*/
+/* Scrollbar-Styling für Webkit-Browser (Chrome, Edge, Safari) */
+
+.overlay-content::-webkit-scrollbar {
+  width: 16px; /* Breite der Scroll-Leiste */
+}
+
+.overlay-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1); /* Dunkler Daumen */
+  border-radius: 8px; /* Runde Ecken */
+}
+
+.overlay-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7); /* Etwas heller bei Hover */
+}
+
+.overlay-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /* Leicht grauer Hintergrund */
+  border-radius: 8px; /* Runde Ecken */
+}

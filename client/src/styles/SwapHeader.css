@@ -1,0 +1,51 @@
+.swap-header {
+  display: flex;
+  gap: 7px;
+  width: 100%;
+  padding: 10px 20px;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: #304674;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  z-index: 10;
+  box-sizing: border-box; /* Padding und Border in der Größe berücksichtigen */
+}
+.child-container {
+  background-color: #bdbdbd;
+}
+.child-container {
+  display: contents;
+}
+.child-container .app_header,
+.child-container .app_header {
+  padding: 0px;
+  box-shadow: none;
+  margin: 0px;
+}
+
+/* Badge(hochgestellte kleine zahl für mein icon)*/
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-container .icon {
+  font-size: 24px; /* Größe des Icons */
+  color: #c0bfbf; /* Farbe des Icons */
+}
+
+.icon-container .badge {
+  position: absolute;
+  top: -11px; /* Position über dem Icon */
+  right: -11px; /* Position rechts vom Icon */
+  background-color: rgba(255, 255, 255, 0); /* Hintergrundfarbe des Badges */
+  color: rgb(255, 0, 0); /* Textfarbe */
+  font-size: 17px; /* Schriftgröße des Badges */
+  font-weight:600;
+  padding: 3px 3px; /* Innenabstand */
+  border-radius: 50%; /* Rundes Badge */
+  line-height: 1; /* Textausrichtung */
+  min-width: 18px; /* Mindestgröße */
+  text-align: center; /* Zentrierter Text */
+}
